@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c045dc12-ac20-4b2c-99da-15862f24ffa2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/steven_skiena/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/steven_skiena/activity_selection_problem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codechef/COOK110B/twogrps.py" beforeDir="false" afterPath="$PROJECT_DIR$/codechef/COOK110B/twogrps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview/postman.py" beforeDir="false" afterPath="$PROJECT_DIR$/interview/postman.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/max_product_subarray.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/leetcode/max_sum_subarray.py" beforeDir="false" afterPath="$PROJECT_DIR$/leetcode/max_sum_subarray.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,28 +26,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gitignore" value="2" />
-          <entry key="py" value="42" />
+          <entry key="gitignore" value="3" />
+          <entry key="py" value="43" />
           <entry key="question" value="1" />
           <entry key="sql" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="42" />
+          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="Python" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="7" />
-          <entry key="gitignore" value="23" />
+          <entry key="gitignore" value="66" />
           <entry key="py" value="6503" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="30" />
+          <entry key="PLAIN_TEXT" value="73" />
           <entry key="Python" value="6503" />
         </counts>
       </usages-collector>
@@ -137,15 +133,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/codechef/COOK110B/MATCHES.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+            <state relative-caret-position="345">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/codechef/COOK110B/twogrps.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -170,7 +170,6 @@
       <list>
         <option value="$PROJECT_DIR$/leetcode/sql/sql_question_answers.txt.py" />
         <option value="$PROJECT_DIR$/leetcode/sql/sql" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/leetcode/problems/python/two_sum/question" />
         <option value="$PROJECT_DIR$/leetcode/problems/python/two_sum/two_sum.py" />
         <option value="$PROJECT_DIR$/codechef/practice/LECANDY.py" />
@@ -193,6 +192,7 @@
         <option value="$PROJECT_DIR$/interview/postman.py" />
         <option value="$PROJECT_DIR$/leetcode/max_sum_subarray.py" />
         <option value="$PROJECT_DIR$/codechef/COOK110B/twogrps.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -213,6 +213,11 @@
             <path>
               <item name="competitive" type="b2602c69:ProjectViewProjectNode" />
               <item name="competitive" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="competitive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="competitive" type="462c0819:PsiDirectoryNode" />
+              <item name="steven_skiena" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -303,7 +308,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25440452" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25440452" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -314,7 +319,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32961586" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32961586" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3110285" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3110285" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -475,13 +480,6 @@
     <entry file="file://$PROJECT_DIR$/concepts/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/Cellar/python/3.7.1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/operator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -555,15 +553,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/codechef/COOK110B/twogrps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/codechef/COOK110B/MATCHES.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/codechef/COOK110B/twogrps.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
