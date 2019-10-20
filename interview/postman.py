@@ -38,13 +38,13 @@ def preprocess(n, blk_sz, blk_id):
 
 def query(l, r, blk_sz):
     maxi = 0
-    while (l < r and l % blk_sz != 0 and l != 0):
+    while l < r and l % blk_sz != 0 and l != 0:
         maxi = max(maxi, new_arr[l])
         l += 1
-    while (l + blk_sz <= r):
+    while l + blk_sz <= r:
         maxi = max(maxi, blocks[l / blk_sz])
         l += 1
-    while (l <= r):
+    while l <= r:
         maxi = max(maxi, new_arr[l])
         l += 1
     return maxi
