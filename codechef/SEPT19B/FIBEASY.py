@@ -16,12 +16,12 @@ while results[i] < 10000000000000000000:
     i = i + 1
 
 
-def closest_two_raise_to_n(n):
-    for i in range(0, len(results)):
-        if results[i] > n:
+def closest_two_raise_to_n(num: int) -> int:
+    for k in range(0, len(results)):
+        if results[k] > num:
             break
-    p = i - 1
-    if i == 0:
+    p = k - 1
+    if k == 0:
         p = 0
     return int(pow(2, p)) % 60
 
