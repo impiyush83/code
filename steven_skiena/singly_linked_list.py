@@ -27,6 +27,7 @@ class SinglyLinkedList:
             temp = temp.next
         print('NULL')
 
+    # O(n)
     def delete(self, value: int) -> None:
         if self.search(value):
             temp = self.head
@@ -42,15 +43,16 @@ class SinglyLinkedList:
                     prev = temp
                     temp = temp.next
 
+    # O(n)
     def search(self, key: int) -> bool:
         temp = self.head
         if temp is None:
             return None
         while temp is not None:
             if temp.value == key:
-                return 1
+                return True
             temp = temp.next
-        return 0
+        return False
 
 
 s = SinglyLinkedList()
