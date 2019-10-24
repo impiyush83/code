@@ -38,3 +38,14 @@ if __name__ == "__main__":
     solution = Solution()
     input_num = int(input())
     print(solution.reverse(input_num))
+
+#
+# n = 4562
+# rev = 0
+#
+# while n > 0:
+#     a = n % 10
+#     rev = rev * 10 + a
+#     n = int(n / 10)
+#
+# print(rev)
