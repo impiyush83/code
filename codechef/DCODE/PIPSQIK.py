@@ -10,7 +10,7 @@ while t:
         else:
             if y2 < X:
                 life -= 1
-        if life ==0 :
+        if life == 0:
             break
         bcr += 1
     print(bcr)
