@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def fun(self, n, noOpeningB, noClosingB, stringFormed):
         if noOpeningB == n and noClosingB == n:
