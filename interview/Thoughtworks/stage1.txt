@@ -1,0 +1,15 @@
+{
+    "stage": "1/4",
+    "statement": "Return the count of characters in the paragraph. Including spaces and punctuations.",
+    "instructions": "You can 'GET' the input from /challenge/input and output should be 'POST' json to /challenge/output. Important note: The time between request 'GET' input and 'POST' requests should not exceed 2 secs.",
+    "sampleInput": {
+        "input": {
+            "text": "This specification does not indicate the behavior, rendering or otherwise, of space characters other than those explicitly identified here as white space characters. For this reason, authors should use appropriate elements and styles to achieve visual formatting effects that involve white space, rather than space characters.For all HTML elements except PRE, sequences of white space separate 'words' (we use the term 'word' here to mean 'sequences of non-white space characters'). When formatting text, user agents should identify these words and lay them out according to the conventions of the particular written language (script) and target medium."
+        }
+    },
+    "sampleOutput": {
+        "output": {
+            "count": 653
+        }
+    }
+}
