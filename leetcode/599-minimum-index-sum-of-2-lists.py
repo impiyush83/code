@@ -19,6 +19,7 @@ class Solution:
 
 
 '''
-O(l1 + l2) - iterating over 2 loops
+Time Complexity:
 
+O(l1 + l2) - iterating over 2 loops one at a time.
 '''
