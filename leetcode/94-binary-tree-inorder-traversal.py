@@ -17,3 +17,22 @@ class Solution:
 
         return list(inorder(root))
 
+
+
+class Solution1:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        def inorder(node, output):
+            if node:
+                inorder(node.left, output)
+                output.append(node.val)
+                inorder(node.right, output)
+
+        output = list()
+        inorder(root, output)
+        return output
+
+solution1 = Solution1()
+a = TreeNode(1)
+a.left = TreeNode(3)
+a.right = TreeNode(4)
+print(solution1.inorderTraversal(a))
