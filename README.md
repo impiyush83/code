@@ -1,3 +1,4 @@
 # code
 
-Contains all solutions of programming questions on popular sites.
+Contains all solutions of programming questions on popular websites.
+
