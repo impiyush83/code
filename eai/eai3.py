@@ -1,15 +1,4 @@
-#!/usr/local/bin/python3
-#
-# arrange_pichus.py : arrange agents on a grid, avoiding conflicts
-#
-# Submitted by : [Nikhil Kamble - nkamble]
-#
-# Based on skeleton code in CSCI B551, Fall 2021.
-
 import sys
-
-global N
-N = 4
 
 
 # Parse the map from a given filename
