@@ -33,8 +33,7 @@ def successors(house_map):
 
 
 def findAllPichus(house_map):
-    return [[row_i, col_i] for col_i in range(len(house_map[0])) for row_i in
-     range(len(house_map)) if house_map[row_i][col_i] == "p"]
+    return [[row_i, col_i] for col_i in range(len(house_map[0])) for row_i in range(len(house_map)) if house_map[row_i][col_i] == "p"]
 
 
 def isPichusPlacementValid(house_map):
@@ -70,6 +69,59 @@ def isPichusPlacementValid(house_map):
                 return False
             if house_map[i][col] == 'X' or house_map[row][i] == '@':
                 break
+
+        #diagonal topright
+        temprow = row
+        tempcol = col
+        temprow -= 1
+        tempcol += 1
+        while temprow <=0 and tempcol < len(house_map[0]):
+            if house_map[temprow][tempcol] == 'p':
+                return False
+            if house_map[temprow][tempcol] == 'X' or house_map[temprow][tempcol] == '@':
+                break
+            temprow -= 1
+            tempcol += 1
+
+        # diagonal topleft
+        temprow = row
+        tempcol = col
+        temprow -= 1
+        tempcol -= 1
+        while temprow >= 0 and tempcol >= 0:
+            if house_map[temprow][tempcol] == 'p':
+                return False
+            if house_map[temprow][tempcol] == 'X' or house_map[temprow][tempcol] == '@':
+                break
+            temprow -= 1
+            tempcol -= 1
+
+        # diagonal bottom left
+        temprow = row
+        tempcol = col
+        temprow += 1
+        tempcol -= 1
+        while temprow < len(house_map) and tempcol >= 0:
+            if house_map[temprow][tempcol] == 'p':
+                return False
+            if house_map[temprow][tempcol] == 'X' or house_map[temprow][tempcol] == '@':
+                break
+            temprow += 1
+            tempcol -= 1
+
+        # diagonal bottom right
+        temprow = row
+        tempcol = col
+        temprow += 1
+        tempcol += 1
+        while temprow < len(house_map) and tempcol < len(house_map[0]):
+            if house_map[temprow][tempcol] == 'p':
+                return False
+            if house_map[temprow][tempcol] == 'X' or house_map[temprow][tempcol] == '@':
+                break
+            temprow += 1
+            tempcol += 1
+
     return True
 
 # check if house_map is a goal state
@@ -83,15 +135,29 @@ def is_goal(house_map, k):
 # - new_house_map is a new version of the map with k agents,
 # - success is True if a solution was found, and False otherwise.
 #
-def solve(initial_house_map,k):
+# def solve(initial_house_map,k):
+    # fringe = [initial_house_map]
+    # valid_successors = []
+    # while len(fringe) > 0:
+    #     for item in fringe:
+    #         all_successors = successors(item)
+    #         for new_house_map in all_successors:
+    #             if is_goal(new_house_map, k):
+    #                 return new_house_map, True
+    #             valid_successors.append(new_house_map)
+    #     fringe = valid_successors
+
+
+def solve(initial_house_map, k):
     fringe = [initial_house_map]
     while len(fringe) > 0:
-        for new_house_map in successors(fringe.pop()):
-            print(fringe)
+        item = fringe.pop(0)
+        all_successors = successors(item)
+        for new_house_map in all_successors:
             if is_goal(new_house_map, k):
-                return(new_house_map,True)
+                return new_house_map, True
             fringe.append(new_house_map)
-
+    return False, ''
 # Main Function
 if __name__ == "__main__":
     house_map=parse_map(sys.argv[1])

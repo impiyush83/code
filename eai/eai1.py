@@ -5,7 +5,7 @@
 # Submitted by : [PUT YOUR NAME AND USERNAME HERE]
 #
 # Based on skeleton code provided in CSCI B551, Fall 2021.
-
+import pdb
 import sys
 
 
@@ -40,20 +40,23 @@ def search(house_map):
     visited = []
     for i in range(row):
         visited.append([False] * col)
+
     while fringe:
+
         (curr_move, curr_dist) = fringe.pop()
         visited[curr_move[0]][curr_move[1]] = True
         for move in moves(house_map,  *curr_move):
             if house_map[move[0]][move[1]] == "@":
+
                 return curr_dist + 1, move[2]  # return a dummy answer
             if not visited[move[0]][move[1]]:
                 fringe.append((move, curr_dist + 1))
-
+    return  False
 # Main Function
 if __name__ == "__main__":
     house_map = parse_map(sys.argv[1])
     print("Shhhh... quiet while I navigate!")
     solution = search(house_map)
     print(solution)
-#         print("Here's the solution I found:")
-#         print(str(solution[0]) + " " + solution[1])
+    # print("Here's the solution I found:")
+    # print(str(solution[0]) + " " + solution[1])
