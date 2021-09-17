@@ -112,7 +112,7 @@ def isPichusPlacementValid(house_map, row, col):
     tempcol = col
     temprow -= 1
     tempcol += 1
-    while temprow <= 0 and tempcol < len(house_map[0]):
+    while temprow >= 0 and tempcol < len(house_map[0]):
         if house_map[temprow][tempcol] == 'p':
             return False
         if house_map[temprow][tempcol] == 'X' or house_map[temprow][
@@ -189,7 +189,6 @@ def solve(initial_house_map, k):
     while len(fringe) > 0:
         for new_house_map in successors(fringe.pop()):
             if is_goal(new_house_map, k):
-                print('Found !!!!!')
                 return (new_house_map, True)
             # if new_house_map not in visited_node:
             #     visited_node.append(new_house_map)
