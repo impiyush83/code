@@ -16,7 +16,7 @@ def reconcilation(item1, item2):
         if item2dict.get(key) and item2dict[key] > 0:
             matched += 1
             item2dict[key] -= 1
-    return len(item1dict.keys()) - matched +
+    return len(item1dict.keys()) - matched
 
 
 with open('input', 'r+') as f:
