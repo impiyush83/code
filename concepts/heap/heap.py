@@ -21,7 +21,7 @@ class Heap:
             while self.heap[new_item_index] > self.heap[parent] and \
                     new_item_index > 1:
                 self.heap[new_item_index], self.heap[parent] \
-                    = self.heap[parent], self.heap[new_item_index]
+                    = self.heap[parent], self.heap[new_item_index]git
                 new_item_index = parent
                 parent = new_item_index // 2
         else:
@@ -36,39 +36,41 @@ class Heap:
         if self.real_size < 1:
             print("No values to pop")
             return
+
         key = self.heap[1]
         self.heap[1] = self.heap[self.real_size]
         self.heap[self.real_size] = 0
         self.real_size -= 1
         new_index = 1
+
         print(self.heap)
-        while new_index < self.real_size and new_index <= self.real_size // 2:
+        while new_index < self.real_size and new_index <= (self.real_size // 2):
             left_child = (new_index * 2)
             right_child = (new_index * 2) + 1
-            if self.type == "max":
-                if self.heap[new_index] < self.heap[left_child] or self.heap[new_index] < self.heap[right_child]:
-                    if self.heap[left_child] < self.heap[right_child]:
-                        self.heap[new_index], self.heap[right_child] \
-                            = self.heap[right_child], self.heap[new_index]
-                        new_index = right_child
-                    else:
-                        self.heap[new_index], self.heap[left_child] \
-                            = self.heap[left_child], self.heap[new_index]
-                        new_index = left_child
+            print(new_index, self.real_size, self.heap)
+            if not self.heap[left_child] and not self.heap[right_child]:
+                return key
+            if self.heap[left_child] and self.heap[right_child]:
+                print("Both present")
+                if self.heap[new_index] > self.heap[left_child] and self.heap[left_child] < self.heap[right_child]:
+                    print("Left replace ")
+                    self.heap[new_index], self.heap[left_child] = self.heap[left_child], self.heap[new_index]
+                    new_index = left_child
+                elif self.heap[new_index] > self.heap[right_child] and self.heap[left_child] > self.heap[right_child]:
+                    print("Right replace ")
+                    self.heap[new_index], self.heap[right_child] = self.heap[right_child], self.heap[new_index]
+                    new_index = right_child
                 else:
                     break
-            else:
-                if self.heap[new_index] > self.heap[left_child] or self.heap[new_index] > self.heap[right_child]:
-                    if self.heap[left_child] < self.heap[right_child]:
-                        self.heap[new_index], self.heap[left_child] \
-                            = self.heap[left_child], self.heap[new_index]
-                        new_index = left_child
-                    else:
-                        self.heap[new_index], self.heap[right_child] \
-                            = self.heap[right_child], self.heap[new_index]
-                        new_index = right_child
+            elif self.heap[left_child]:
+                print("Only left present")
+                print(self.heap[new_index], self.heap[left_child])
+                print("printed left compariosn")
+                if self.heap[new_index] > self.heap[left_child]:
+                    self.heap[new_index], self.heap[left_child] = self.heap[left_child], self.heap[new_index]
+                    new_index = left_child
                 else:
-                    break
+                    return key
         return key
 
     def peek(self):
@@ -78,11 +80,19 @@ class Heap:
         return
 
 
-m = Heap(6, "min")
-m.add(1)
-m.add(5)
-m.add(2)
-m.add(3)
-m.add(4)
-m.pop()
-print(m.heap)
+def heapsort(ll):
+    m = Heap(len(ll), "min")
+    for item in ll:
+        m.add(item)
+    ans = []
+    print(m.heap)
+    for i in range(len(ll)):
+        ans.append(m.pop())
+        print(ans)
+        print(m.heap)
+        print(m.real_size)
+    return ans
+
+
+print(heapsort([5, 3, 6, 1, 9, 2, 7, 4, 10, 20, 12]))
+
