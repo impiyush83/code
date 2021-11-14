@@ -21,7 +21,7 @@ class Heap:
             while self.heap[new_item_index] > self.heap[parent] and \
                     new_item_index > 1:
                 self.heap[new_item_index], self.heap[parent] \
-                    = self.heap[parent], self.heap[new_item_index]git
+                    = self.heap[parent], self.heap[new_item_index]
                 new_item_index = parent
                 parent = new_item_index // 2
         else:
