@@ -1,6 +1,7 @@
 """
 
-The brute algorithm will run in O(DP) if P is found at the last substring of D
+The brute algorithm will run in omega(DP) if P is found at the first substring
+of D
 
 """
 
@@ -23,6 +24,6 @@ def find_brute(D, P):
 
 
 if __name__ == '__main__':
-    H = "bbbabbbabbbabbbabbbabbbabbbc"
+    H = "bbbcbbbabbbabbbabbbabbbabbba"
     N = "bbbc"
     print(find_brute(H, N))

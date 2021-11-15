@@ -50,10 +50,10 @@ def find_boyer_moore(T, P):
 
 def compute_kmp_fail(P):
     m = len(P)
-    fail=[0]*m
-    j=1
-    k=0
-    while j<m:
+    fail = [0]*m
+    j = 1
+    k = 0
+    while j < m:
         if P[j] == P[k]:
             fail[j] = k+1
             j += 1
@@ -68,7 +68,7 @@ def find_kmp(T, P):
     n, m = len(T), len(P)
     if m == 0:
         return 0
-    fail = compute_kmp_fail(P) # print(fail)
+    fail = compute_kmp_fail(P)
     j = 0
     k = 0
     while j < n:
