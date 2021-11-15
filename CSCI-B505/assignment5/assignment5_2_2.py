@@ -1,5 +1,6 @@
 import random
 import string
+from time import time
 import matplotlib.pyplot as plt
 
 def find_brute(D, P):
@@ -9,16 +10,15 @@ def find_brute(D, P):
     :param P:  string
     :return: boolean
     """
-    checks = 0
+
     n, m = len(D), len(P)
     for i in range(n - m + 1):
         k = 0
-        checks += 1
         while k < m and D[i+k] == P[k]:
             k += 1
         if k == m:
-            return i, checks
-    return -1, checks
+            return i
+    return -1
 
 
 def find_boyer_moore(T, P):
@@ -34,11 +34,9 @@ def find_boyer_moore(T, P):
     last = {}
     for k in range(m):
         last[P[k]] = k
-    checks = 0
     i = m-1
     k = m-1
     while i < n:
-        checks += 1
         if T[i] == P[k]:
             if k == 0:
                 break
@@ -50,7 +48,7 @@ def find_boyer_moore(T, P):
             j = last.get(T[i], -1)
             i += m - min(k, j+1)
             k = m - 1
-    return -1, checks
+    return -1
 
 
 def compute_kmp_fail(P):
@@ -81,7 +79,6 @@ def find_kmp(T, P):
     :param P:  string
     :return: boolean
     """
-    checks = 0
     n, m = len(T), len(P)
     if m == 0:
         return 0
@@ -89,17 +86,16 @@ def find_kmp(T, P):
     j = 0
     k = 0
     while j < n:
-        checks += 1
         if T[j] == P[k]:
             if k == m-1:
-                return j-m+1, checks
+                return j-m+1
             j += 1
             k += 1
         elif k > 0:
             k = fail[k-1]
         else:
             j += 1
-    return -1, checks
+    return -1
 
 
 if __name__ == "__main__":
@@ -108,20 +104,26 @@ if __name__ == "__main__":
     boyer_time = []
     kmp_time = []
     algorithm_size = []
-    while N < 1000000:
+    while N < 100000000:
         hay = ''.join(random.choice(string.ascii_lowercase) for _ in range(N))
-        key = hay[-5:-1]
+        key = ''.join(random.choice(string.ascii_lowercase) for _ in range(5))
 
         algorithm_size.append(N)
 
-        _, checks = find_brute(hay, key)
-        brute_time.append(checks)
+        start_time = time()
+        find_brute(hay, key)
+        end_time = time()
+        brute_time.append((end_time - start_time))
 
-        _, checks = find_boyer_moore(hay, key)
-        boyer_time.append(checks)
+        start_time = time()
+        find_boyer_moore(hay, key)
+        end_time = time()
+        boyer_time.append((end_time - start_time))
 
-        _, checks = find_kmp(hay, key)
-        kmp_time.append(checks)
+        start_time = time()
+        find_kmp(hay, key)
+        end_time = time()
+        kmp_time.append((end_time - start_time))
         N = N * 10
 
     plt.xlabel('Input Size')
