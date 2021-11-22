@@ -3,60 +3,46 @@ Insertion of 2 string D and P takes D + P time = O(D + P)
 Traversing till there are more than 1 node, takes O(N) time.
 """
 
-ALPHABET_SIZE = 26
-indexes = 0
+import string
 
 class TrieNode:
     def __init__(self):
         self.is_leaf = False
-        self.children = [None]*ALPHABET_SIZE
+        self.children = dict()
 
-
-def insert(key, root):
-    node = root
-    for level in range(len(key)):
-        index = ord(key[level]) - ord('a')
-        if node.children[index] == None:
-            node.children[index] = TrieNode()
-        node = node.children[index]
+def insert(key, head):
+    node = head
+    for character in key:
+        if not node.children.get(character):
+            node.children[character] = TrieNode()
+        node = node.children[character]
     node.is_leaf = True
 
-def buildTrie(D, P, root):
-    """
-    Builds trie
-    :param D: string
-    :param P:  string
-    :return: None
-    """
-    insert(D, root)
-    insert(P, root)
-
-# Counts and returns number of children of the node
 def countChildren(node):
     count = 0
-    for i in range(ALPHABET_SIZE):
-        if node.children[i] != None:
-            count +=1
-            # Keeping track of diversion in the trie
-            global indexes
-            indexes = i
+    for i in string.ascii_letters:
+        if not node.children.get(i):
+            continue
+        count += 1
     return count
 
-# Traverse on trie and return longest common prefix 
-def traverse(root):
-    head = root
+# takes linear time
+def longestCommonPrefix(node):
+    head = node
     prefix = ""
-    while(countChildren(head) == 1 and head.is_leaf == False):
-        head = head.children[indexes]
-        prefix += chr(97 + indexes)
+    while countChildren(head) == 1 and not head.is_leaf:
+        # this take O(1) as it has only 1 children
+        for k, v in head.children.items():
+            prefix += k
+            head = v
     return prefix or -1
 
-def longestCommonPrefix(D, P, root):
-    buildTrie(D, P, root)
-    return traverse(root)
 
 # Driver code to test the code
-D = "aacabcabc"
-P = "abc"
+D = "aAacabcabc"
+P = "aAa"
+
 root = TrieNode()
-print(longestCommonPrefix(D, P, root))
+insert(D, root)
+insert(P, root)
+print(longestCommonPrefix(root))

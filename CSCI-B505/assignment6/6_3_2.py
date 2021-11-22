@@ -18,7 +18,7 @@ def solution(a, b, c, t):
             to_find = t - (i + j)
             print(to_find)
             if binarysearch(c, 0, len(c), to_find):
-                return (i,j,to_find)
+                return i, j, to_find
     return False
 
 
