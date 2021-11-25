@@ -1,48 +1,49 @@
-"""
-Insertion of 2 string D and P takes D + P time = O(D + P)
-Traversing till there are more than 1 node, takes O(N) time.
-"""
+def compute_kmp_fail(P):
+    """
+    KMP Compute string function
+    :param P: string
+    :return: list
+    """
+    m = len(P)
+    fail = [0] * m
+    j = 1
+    k = 0
+    while j < m:
+        if P[j] == P[k]:
+            fail[j] = k+1
+            j += 1
+            k += 1
+        elif k > 0:
+            k = fail[k-1]
+        else:
+            j +=1
+    return fail
 
-import string
+def find_kmp(T, P):
+    """
+    KMP string matching algorithm
+    :param T: string
+    :param P:  string
+    :return: boolean
+    """
+    n, m = len(T), len(P)
+    if m == 0:
+        return 0
+    fail = compute_kmp_fail(P)
+    j = 0
+    k = 0
+    while j < n:
+        if T[j] == P[k]:
+            if k == m-1:
+                return j-m+1, j
+            j += 1
+            k += 1
+        elif k > 0:
+            k = fail[k-1]
+            print(k)
+        else:
+            j += 1
+            print(j ,k)
+    return -1
 
-class TrieNode:
-    def __init__(self):
-        self.is_leaf = False
-        self.children = dict()
-
-def insert(key, head):
-    node = head
-    for character in key:
-        if not node.children.get(character):
-            node.children[character] = TrieNode()
-        node = node.children[character]
-    node.is_leaf = True
-
-def countChildren(node):
-    count = 0
-    for i in string.ascii_letters:
-        if not node.children.get(i):
-            continue
-        count += 1
-    return count
-
-# takes linear time
-def longestCommonPrefix(node):
-    head = node
-    prefix = ""
-    while countChildren(head) == 1 and not head.is_leaf:
-        # this take O(1) as it has only 1 children
-        for k, v in head.children.items():
-            prefix += k
-            head = v
-    return prefix or -1
-
-
-# Driver code to test the code
-D = "aAacabcabc"
-P = "aAa"
-
-root = TrieNode()
-insert(D, root)
-insert(P, root)
-print(longestCommonPrefix(root))
+print(find_kmp("piushpipi", "piy"))
