@@ -3,8 +3,7 @@ class TrieNode:
         self.node = dict()
         self.word = ""
         self.e = False
-        self.priority = 0
-
+        self.priority
 
 def insert(root, string, cnt):
     for i in range(len(string)):

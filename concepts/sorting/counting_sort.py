@@ -24,9 +24,12 @@ def counting_sort(D, B, k):
 
     print('C3 : ', C)
 
+    print(C, D, B)
+
     for j in range(input_length-1, -1, -1):
         B[C[D[j]]] = D[j]
         C[D[j]] = C[D[j]] - 1
+        print(B, D, C)
 
     print('B : ', B)
 
